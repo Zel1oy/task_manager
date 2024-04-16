@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-task-group-task-table
+      author: Arsenii Mehdalskyi
+      changes:
+          - createTable:
+              tableName: task_group_task
+              columns:
+              - column:
+                  name: task_group_id
+                  type: bigint
+                  constraints:
+                      primaryKey: true
+                      nullable: false
+                      foreignKeyName: fk_task_group_id
+                      references: task_groups(id)
+              - column:
+                  name: task_id
+                  type: bigint
+                  constraints:
+                      primaryKey: true
+                      nullable: false
+                      foreignKeyName: fk_task_id
+                      references: tasks(id)

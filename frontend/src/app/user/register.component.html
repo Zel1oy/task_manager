@@ -1,0 +1,95 @@
+<div class="body register">
+  <div class="register__container">
+    <div nz-flex [nzVertical]="true" class="register__logo">
+      <div class="register__logo__text">
+        <img class="logo_img" src="assets/Group%2040.svg" alt="logo" />
+        <span class="logo__text" nz-typography>Task Manager</span>
+      </div>
+      <div class="register__logo__description">
+        Task Management: Elevate Efficiency, Control Tasks, Prioritize
+      </div>
+    </div>
+    <div class="register__body">
+      <nz-tabset>
+        <nz-tab nzTitle="Login">
+          <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your username!">
+                <nz-input-group class="first" [nzPrefix]="prefixTemplateUser">
+                  <input type="text" nz-input formControlName="email" placeholder="email" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your Password!">
+                <nz-input-group [nzPrefix]="prefixTemplateLock">
+                  <input type="password" nz-input formControlName="password" placeholder="password" />
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <div nz-row class="login-form-margin">
+              <div nz-col [nzSpan]="12">
+                <label nz-checkbox>
+                  <span>Remember me</span>
+                </label>
+              </div>
+              <div nz-col [nzSpan]="12">
+                <a class="login-form-forgot">Forgot your password?</a>
+              </div>
+            </div>
+            <button nz-button class="login-form-button login-form-margin" [nzSize]="'large'" [nzType]="'primary'">Sign in</button>
+          </form>
+        </nz-tab>
+        <nz-tab nzTitle="Sign up">
+          <form nz-form [formGroup]="registerForm" class="login-form" (ngSubmit)="register()">
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your username!">
+                <nz-input-group class="first" [nzPrefix]="prefixTemplateUser">
+                  <input type="text" nz-input formControlName="email" placeholder="email"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your Password!">
+                <nz-input-group class="first" [nzPrefix]="prefixTemplateLock">
+                  <input type="password" nz-input formControlName="password" placeholder="password"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control nzErrorTip="Please input your Password!">
+                <nz-input-group [nzPrefix]="prefixTemplateLock">
+                  <input type="password" nz-input formControlName="confirmPassword" placeholder="confirm password"/>
+                </nz-input-group>
+              </nz-form-control>
+            </nz-form-item>
+            <div nz-row class="login-form-margin">
+              <div nz-col [nzSpan]="12">
+                <label nz-checkbox>
+                  <span>Remember me</span>
+                </label>
+              </div>
+            </div>
+            <button nz-button class="login-form-button login-form-margin" [nzSize]="'large'" [nzType]="'primary'">Sign up</button>
+          </form>
+        </nz-tab>
+      </nz-tabset>
+      <div class="register__footer">
+        <span class="register__footer-first">Quick Sign-in:</span>
+        <div class="icon-list">
+          <span nz-icon class="footer-icon" nzType="google-circle" nzTheme="fill"></span>
+          <span nz-icon class="footer-icon" nzType="windows" nzTheme="fill"></span>
+          <span nz-icon class="footer-icon" nzType="linkedin" nzTheme="fill"></span>
+        </div>
+        <a class="register__footer-last" (click)="switchTab(1)">Sign up</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #prefixTemplateUser>
+  <span nz-icon nzType="user" [nzTheme]="'outline'" style="color: #1890FF"></span>
+</ng-template>
+<ng-template #prefixTemplateLock>
+  <span nz-icon nzType="lock" [nzTheme]="'twotone'"></span>
+</ng-template>

@@ -1,0 +1,73 @@
+<div class="body">
+  <nz-layout>
+    <nz-header class="header">
+      <div>
+      <span
+        class="trigger"
+        nz-icon
+        [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed"
+        style="color: white; font-size: 20px; cursor: pointer;"
+      ></span>
+      </div>
+      <div>
+        <button>Some profile button</button>
+      </div>
+    </nz-header>
+
+    <nz-layout>
+      <nz-sider style="height: 100vh" nzTheme="light">
+        <ul nz-menu nzMode="inline" class="sider-menu">
+          <li nz-menu-item *ngFor="let taskGroup of allTaskGroups" (click)="selectTaskGroup(taskGroup)">
+            <span class="task-group-name">{{ taskGroup.name }}</span>
+            <span class="task-bin-icon" nz-icon nzType="delete"></span>
+          </li>
+          <li nz-menu-item>
+            <span nz-icon nzType="plus"></span>
+            <span>Add new task</span>
+          </li>
+        </ul>
+      </nz-sider>
+      <nz-layout>
+        <nz-header class="inner-header">
+          <h4>Java workspace</h4>
+        </nz-header>
+        <nz-content class="inner-task-content">
+          <nz-table
+            #rowSelectionTable
+            nzShowSizeChanger
+            [nzData]="currentListOfTasks"
+            (nzCurrentPageDataChange)="onCurrentPageDataChange($event)"
+          >
+            <thead>
+              <tr>
+                <th
+                  [(nzChecked)]="checked"
+                  [nzIndeterminate]="indeterminate"
+                  nzLabel="Select all"
+                  (nzCheckedChange)="onAllChecked($event)"
+                ></th>
+                <th>Task Name</th>
+                <th>Description</th>
+                <th [nzSortFn]="priorityCompare()">Priority</th>
+                <th [nzSortFn]="statusCompare()">Status</th>
+                <th [nzSortFn]="dueDateCompare()">Due date</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let data of rowSelectionTable.data">
+                <td [nzChecked]="setOfCheckedId.has(data.id)" (nzCheckedChange)="onItemChecked(data.id, $event)"></td>
+                <td>{{ data.name }}</td>
+                <td>{{ data.description }}</td>
+                <td>{{ data.priority }}</td>
+                <td>{{ data.status }}</td>
+                <td>{{ data.dueDate | date: 'yyyy-MM-dd' }}</td>
+              </tr>
+            </tbody>
+          </nz-table>
+        </nz-content>
+      </nz-layout>
+    </nz-layout>
+  </nz-layout>
+</div>

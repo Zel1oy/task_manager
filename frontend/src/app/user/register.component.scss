@@ -1,0 +1,93 @@
+.body {
+  background-color: #F0F2F5;
+  min-height: 100vh;
+}
+
+.register {
+  padding-top: 110px;
+  padding-bottom: 145px;
+  display: flex;
+  justify-content: center;
+}
+
+.register__container {
+  flex-direction: column;
+}
+
+nz-input-group {
+  width: 360px;
+  height: 40px;
+}
+
+.first {
+  margin-bottom: 28px;
+}
+
+.login-form-margin {
+  margin-top: 22px;
+}
+
+input {
+  text-align: center;
+}
+
+.login-form-button {
+  margin-bottom: 22px;
+  margin-top: 22px;
+}
+
+.register__logo {
+  margin-top: 18px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.register__logo__text {
+  width: 298px;
+  height: 46px;
+  margin-bottom: 12px;
+}
+
+.logo__text {
+  font-size: 33px;
+  height: 38px;
+}
+
+.register__logo__description {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: 'Roboto', sans-serif;
+  opacity: 0.45;
+}
+
+.logo_img {
+  height: 38px;
+}
+
+.register__body {
+  width: 360px;
+  height: 400px;
+  margin-top: 6.5px;
+}
+
+.register__footer {
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.register__footer-first {
+  margin-right: 16px;
+}
+
+.footer-icon {
+  font-size: 28px;
+  margin-right: 12px;
+  color: #00000073;
+}
+
+.register__footer-last {
+  margin-left: 57px;
+}

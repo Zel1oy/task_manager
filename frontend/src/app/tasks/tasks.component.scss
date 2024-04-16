@@ -1,0 +1,41 @@
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  display: flex;
+  background-color: black;
+  height: 48px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sider-menu {
+  height: 100%;
+  border-right: 0;
+}
+
+.inner-task-content {
+  margin: 0 24px;
+}
+
+.task-bin-icon {
+  font-size: 16px;
+  color: gray;
+}
+.task-group-name {
+  display: inline-block;
+  width: 140px;
+  height: 22px;
+}
+
+nz-content {
+  background: #fff;
+}
+
+.inner-header {
+  background-color: white;
+  margin: 0 0 16px 0;
+  font-size: 20px;
+  padding: 0 24px;
+}
